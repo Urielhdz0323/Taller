@@ -5,35 +5,52 @@ def iniciar_taller():
     print(bienvenida)
 
     almacen = ["italika","vento"]
-    menu = """
-            a) Agregar moto
-            b) Eliminar moto
-            c) Actualizar moto
-            d) Mostrar el alamcen 
-            :"""
-    opc = input(menu)   
 
-    if opc == "a":
-        Nueva_moto = input("que moto deseas agregar al almacen? ")
-        almacen.append(Nueva_moto)
-        print(almacen)
-    elif opc == "b":
-        moto_eliminada = input("¿Que moto desea eliminar? ")
-        if moto_eliminada in almacen:
-           indice = almacen.remove(moto_eliminada)
-           print(almacen)
-        else:
-            print("la moto que se desea eliminar no esta dentro de los registros del almacen")
-    elif opc == "c":
-        Actualizacion = input("¿Que moto deseas actualizar? ")
-        if Actualizacion in almacen:
-            index = almacen.index(Actualizacion)
-            almacen.pop(index)
-            nuevo_dato = input("Introduzca el nuevo dato de la actualizacion: ")
-            almacen.insert(index, nuevo_dato)
+    seguir = True
+
+    while seguir == True:    
+        menu = """
+                a) Agregar moto
+                b) Eliminar moto
+                c) Actualizar moto
+                d) Mostrar el alamcen
+                e) Salir 
+                :"""
+        opc = input(menu)   
+
+        if opc == "a":
+            Nueva_moto = input("que moto deseas agregar al almacen? ")
+            almacen.append(Nueva_moto)
             print(almacen)
+        elif opc == "b":
+            moto_eliminada = input("¿Que moto desea eliminar? ")
+            if moto_eliminada in almacen:
+                almacen.remove(moto_eliminada)
+                print(almacen)
+            else:
+                print("la moto que se desea eliminar no esta dentro de los registros del almacen")
+
+        elif opc == "c":
+            Actualizacion = input("¿Que moto deseas actualizar? ")
+            if Actualizacion in almacen:
+                index = almacen.index(Actualizacion)
+                almacen.pop(index)
+                nuevo_dato = input("Introduzca el nuevo dato de la actualizacion: ")
+                almacen.insert(index, nuevo_dato)
+                print(almacen)
+            else:
+                print("el elemento a acutalizar no existe dentro del almacen")
+
+        elif opc == "d":
+            i = 0
+            while i < len(almacen):
+                print(almacen[i])
+                i = i+1
+        elif opc == "e":
+            seguir = False
         else:
-            print("el elemento a acutalizar no existe dentro del almacen")
+            print("el valor introducido no coincide con las opciones dadas")
+
 
 
 
