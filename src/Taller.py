@@ -4,7 +4,7 @@ def iniciar_taller():
                  moto al cien """
     print(bienvenida)
 
-    almacen = ["italika"]
+    almacen = ["italika","vento"]
     menu = """
             a) Agregar moto
             b) Eliminar moto
@@ -20,11 +20,24 @@ def iniciar_taller():
     elif opc == "b":
         moto_eliminada = input("¿Que moto desea eliminar? ")
         if moto_eliminada in almacen:
-            almacen.index(moto_eliminada)
-            print(moto_eliminada,"fue eliminada con existo")
+           indice = almacen.remove(moto_eliminada)
+           print(almacen)
         else:
             print("la moto que se desea eliminar no esta dentro de los registros del almacen")
+    elif opc == "c":
+        Actualizacion = input("¿Que moto deseas actualizar? ")
+        if Actualizacion in almacen:
+            index = almacen.index(Actualizacion)
+            almacen.pop(index)
+            nuevo_dato = input("Introduzca el nuevo dato de la actualizacion: ")
+            almacen.insert(index, nuevo_dato)
+            print(almacen)
+        else:
+            print("el elemento a acutalizar no existe dentro del almacen")
 
 
 
 
+
+
+    
